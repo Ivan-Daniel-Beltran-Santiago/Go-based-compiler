@@ -1,0 +1,10 @@
+/*345.34.3*45.8*/
+*/
+return suma;
+var a, b,d,e,c := write;
+    j := real;
+    h,b,i,k := int;
+read "a":=;
+    a:=;
+
+end

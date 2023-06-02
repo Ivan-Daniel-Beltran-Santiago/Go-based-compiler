@@ -12,7 +12,7 @@ class Lexico {
     
     boolean bugFound = false; // Error encontrado durante el análisis léxico
     
-    String Archivo = "/home/danny/NetBeansProjects/Sister_Gabby/src/main/java/automatacion1/sister_gabby/Codigo.txt";
+    String Archivo = "/home/danny/Descargas/Sister_Gabby/src/main/java/automatacion1/sister_gabby/Codigo.txt";
     
     // Matriz de transición
     int Matrix [][] = {
@@ -41,17 +41,32 @@ class Lexico {
     // Palabras reservadas
     String reservedWords [][] = {
         
-        //        0      1
-        /* 0*/ { "break", "200"},
-        /* 1*/ {   "var", "201"},
-        /* 2*/ {"return", "202"},
-        /* 3*/ {    "if", "203"},
-        /* 4*/ {  "else", "204"},
-        /* 5*/ {   "for", "205"},
-        /* 6*/ {  "true", "206"},
-        /* 7*/ { "false", "207"},
-        /* 8*/ {  "read", "208"},
-        /* 9*/ { "write", "209"}
+        //              0      1
+        /* 0*/ {      "break", "200"},
+        /* 1*/ {       "case", "201"},
+        /* 2*/ {       "chan", "202"},
+        /* 3*/ {      "const", "203"},
+        /* 4*/ {   "continue", "204"},
+        /* 5*/ {    "default", "205"},
+        /* 6*/ {      "defer", "206"},
+        /* 7*/ {       "else", "207"},
+        /* 8*/ {"fallthrough", "208"},
+        /* 9*/ {        "for", "209"},
+        /*10*/ {       "func", "210"},
+        /*11*/ {         "go", "211"},
+        /*12*/ {       "goto", "212"},
+        /*13*/ {         "if", "213"},
+        /*14*/ {     "import", "214"},
+        /*15*/ {  "interface", "215"},
+        /*16*/ {        "map", "216"},
+        /*17*/ {    "package", "217"},
+        /*18*/ {      "range", "218"},
+        /*19*/ {     "return", "219"},
+        /*20*/ {     "select", "220"},
+        /*21*/ {     "struct", "221"},
+        /*22*/ {     "switch", "222"},
+        /*23*/ {       "type", "223"},
+        /*24*/ {        "var", "224"}
             
     };
     
@@ -176,9 +191,7 @@ class Lexico {
                         ValidaSiEsPalabraReservada();
                     }
                     
-                    if (TransArrayVal == 100 || TransArrayVal == 101 || TransArrayVal == 102 
-                            || TransArrayVal == 106 || TransArrayVal == 108 || TransArrayVal == 109 || 
-                            TransArrayVal == 116 || TransArrayVal == 125 || TransArrayVal == 203){
+                    if (TransArrayVal == 100 || TransArrayVal == 101 || TransArrayVal == 102 || TransArrayVal == 106 || TransArrayVal == 108 || TransArrayVal == 109 || TransArrayVal == 116 || TransArrayVal == 125 || TransArrayVal == 203){
                         Code.seek(Code.getFilePointer() - 1); // Retrocede a una posición el apuntador
                     }
                     else { 
@@ -232,8 +245,7 @@ class Lexico {
         if(Chara != 1 && TransArrayVal >= 500){
             for(String[] Errol: Errors){
                 if(TransArrayVal == Integer.valueOf(Errol[1])){
-                    System.out.println("El error encontrado es: " + Errol[0] + " error " + 
-                            Errol[1] + " en caracter " + (char)Chara + " en el renglón " + line_num);
+                    System.out.println("El error encontrado es: " + Errol[0] + " error " + Errol[1] + " en caracter " + (char)Chara + " en el renglón " + line_num);
                 }
             }
             

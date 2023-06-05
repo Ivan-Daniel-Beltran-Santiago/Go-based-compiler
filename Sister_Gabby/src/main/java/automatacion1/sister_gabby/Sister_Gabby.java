@@ -8,6 +8,7 @@ public class Sister_Gabby {
         Lexico Lexico = new Lexico();
         if(!Lexico.bugFound){
            System.out.println("Análisis léxico terminado"); 
+           Sintaxis Sintaxis = new Sintaxis();
         }
     }
 }

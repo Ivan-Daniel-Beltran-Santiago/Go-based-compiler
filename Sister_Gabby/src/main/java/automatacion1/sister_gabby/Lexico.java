@@ -17,24 +17,24 @@ class Lexico {
     // Matriz de transición
     int Matrix [][] = {
         
-            //     l    d    .    +    -    *    ^    /    <    >    =    !    &    |    ;    ,    :    (    )    "   eb   nl  tab  fda   oc
-            //     0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24
-        /* 0*/ {   1,   2, 120, 103, 104, 105, 107,   5,   8,   9,  10,  11,  12,  13, 117, 118,  14, 121, 122,  15,   0,   0,   0,   0, 506},
-        /* 1*/ {   1,   1, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100},
-        /* 2*/ { 101,   2,   3, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101},
-        /* 3*/ { 501,   4, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501},
-        /* 4*/ { 102,   4, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102},
-        /* 5*/ { 106, 106, 106, 106, 106,   6, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106},
-        /* 6*/ {   6,   6,   6,   6,   6,   7,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 500,   6},
-        /* 7*/ {   6,   6,   6,   6,   6,   6,   6,   0,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6},
-        /* 8*/ { 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 110, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108},
-        /* 9*/ { 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 111, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109},
-        /*10*/ { 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 112, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502},
-        /*11*/ { 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 113, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116},
-        /*12*/ { 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 114, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503},
-        /*13*/ { 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 115, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504},
-        /*14*/ { 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 124, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502},
-        /*15*/ {  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15, 123,  15, 505,  15,  15,  15}
+            //     l    d    .    +    -    *    ^    /    <    >    =    !    &    |    ;    ,    :    (    )    "   eb   nl  tab  fda   oc    {    }
+            //     0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26
+        /* 0*/ {   1,   2, 120, 103, 104, 105, 107,   5,   8,   9,  10,  11,  12,  13, 117, 118,  14, 121, 122,  15,   0,   0,   0,   0, 506, 125, 126},
+        /* 1*/ {   1,   1, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100},
+        /* 2*/ { 101,   2,   3, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101},
+        /* 3*/ { 501,   4, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501},
+        /* 4*/ { 102,   4, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102},
+        /* 5*/ { 106, 106, 106, 106, 106,   6, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106},
+        /* 6*/ {   6,   6,   6,   6,   6,   7,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 500,   6,   6,   6},
+        /* 7*/ {   6,   6,   6,   6,   6,   6,   6,   0,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6},
+        /* 8*/ { 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 110, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108},
+        /* 9*/ { 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 111, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109, 109},
+        /*10*/ { 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 112, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502},
+        /*11*/ { 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 113, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116},
+        /*12*/ { 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 114, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503},
+        /*13*/ { 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 115, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504},
+        /*14*/ { 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 124, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502},
+        /*15*/ {  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15,  15, 123,  15, 505,  15,  15,  15,  15,  15}
 
     };
     
@@ -60,13 +60,14 @@ class Lexico {
         /*15*/ {  "interface", "215"},
         /*16*/ {        "map", "216"},
         /*17*/ {    "package", "217"},
-        /*18*/ {      "range", "218"},
-        /*19*/ {     "return", "219"},
-        /*20*/ {     "select", "220"},
-        /*21*/ {     "struct", "221"},
-        /*22*/ {     "switch", "222"},
-        /*23*/ {       "type", "223"},
-        /*24*/ {        "var", "224"}
+        /*18*/ {    "Println", "218"},
+        /*19*/ {      "range", "219"},
+        /*20*/ {     "return", "220"},
+        /*21*/ {     "select", "221"},
+        /*22*/ {     "struct", "222"},
+        /*23*/ {     "switch", "223"},
+        /*24*/ {       "type", "224"},
+        /*25*/ {        "var", "225"}
             
     };
     
@@ -159,6 +160,12 @@ class Lexico {
                         case ' ':
                             Column = 20;
                             break;
+                        case '{':
+                            Column = 25;
+                            break;
+                        case '}':
+                            Column = 26;
+                            break;
                         case 10: // Nueva línea
                             {
                                 Column = 21;
@@ -191,7 +198,7 @@ class Lexico {
                         ValidaSiEsPalabraReservada();
                     }
                     
-                    if (TransArrayVal == 100 || TransArrayVal == 101 || TransArrayVal == 102 || TransArrayVal == 106 || TransArrayVal == 108 || TransArrayVal == 109 || TransArrayVal == 116 || TransArrayVal == 125 || TransArrayVal == 203){
+                    if (TransArrayVal == 100 || TransArrayVal == 101 || TransArrayVal == 102 || TransArrayVal == 106 || TransArrayVal == 108 || TransArrayVal == 109 || TransArrayVal == 116 || TransArrayVal == 127 || TransArrayVal == 203){
                         Code.seek(Code.getFilePointer() - 1); // Retrocede a una posición el apuntador
                     }
                     else { 
@@ -208,6 +215,7 @@ class Lexico {
             }
             
             ImprimeNodos();
+            Sintaxis();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
@@ -228,7 +236,7 @@ class Lexico {
         p = Head;
         
         while(p != null){
-            System.out.println(p.Lexeme + " " + p.Token + " " + p.Line);
+            System.out.println(p.Lexeme + " " + p.Token + " " + (p.Line - 1));
             p = p.Next;
         }
     }
@@ -264,5 +272,129 @@ class Lexico {
             p.Next = Node;
             p = Node;
         }
+    }
+
+    private void Sintaxis() {
+        p = Head;
+        
+        while(p != null){
+            if(p.Token  == 217){
+                p = p.Next;
+                if(p.Token  == 100){
+                    p = Bloque_Import(p);
+                    p = p.Next;
+                    if(p.Token  == 210){
+                        p = p.Next;
+                        if(p.Token  == 100){
+                            p = p.Next;
+                            if(p.Token  == 121){
+                                p = p.Next;
+                                if(p.Token  == 122){
+                                    p = p.Next;
+                                    if(p.Token  == 125){
+                                        p = p.Next;
+                                        if(p.Token  == 126){
+                                            p = p.Next;
+                                        } else{
+                                            System.out.println("Se espera un cierre de llaves");
+                                        }
+                                    } else{
+                                        System.out.println("Se espera un inicio de llaves");
+                                    }
+                                } else{
+                                    System.out.println("Se espera un cierre de paréntesis");
+                                }
+                            } else{
+                                System.out.println("Se espera un inicio de paréntesis");
+                            }
+                        } else{
+                            System.out.println("Se espera un identificador");
+                        }
+                    } else{
+                        System.out.println("Se espera la palabra 'func'");
+                    }
+                } else{
+                    System.out.println("Se espera un identificador");
+                }
+            } else{
+                System.out.println("Se espera la palabra 'package'");
+            }
+            break;
+        }    
+    }
+
+    private Nodo Bloque_Import(Nodo Import) {
+        while(Import.Next.Token == 214){
+            Import = Import.Next;
+            if(Import.Next.Token == 121){
+                Import = Import.Next;
+                if(Import.Next.Token == 123){
+                    Import = Import.Next;
+                    if(Import.Next.Token == 122){
+                        Import = Import.Next;
+                    } else {
+                        System.out.println("Se espera un cierre de paréntesis");
+                    }
+                } else {
+                    System.out.println("Se espera una cadena de caracteres");
+                }
+            } else {
+                System.out.println("Se espera un inicio de paréntesis");
+            }
+        }
+        return Import;
+    }
+
+    private Nodo Bloque_Var(Nodo Variable) {
+        if(Variable.Next.Token == 225){
+            Variable = Variable.Next;
+            if(Variable.Next.Token == 100){
+                Variable = Variable.Next;
+                if(Variable.Next.Token == 124){
+                    Variable = Variable.Next;
+                    if(Variable.Next.Token == 100 || Variable.Next.Token == 101 || Variable.Next.Token == 102 || Variable.Next.Token == 123){
+                        Variable = Variable.Next;
+                    } else {
+                        System.out.println("Se espera un valor para la variable");
+                    }
+                } else {
+                    System.out.println("Se esperan dos puntos y un igual");
+                }
+            } else {
+                System.out.println("Se espera un identificador");
+            }
+        } else {
+            System.out.println("Se espera la palabra 'var'");
+        }
+        return Variable;
+    }
+    
+    private Nodo Bloque_Print(Nodo Print) {
+        if(Print.Next.Token == 100){
+            Print = Print.Next;
+            if(Print.Next.Token == 120){
+                Print = Print.Next;
+                if(Print.Next.Token == 218){
+                    Print = Print.Next;
+                    if(Print.Next.Token == 218){
+                        Print = Print.Next;
+                        if(Print.Next.Token == 100 || Print.Next.Token == 101 || Print.Next.Token == 102 || Print.Next.Token == 123){
+                            Print = Print.Next;
+                        } else {
+                            System.out.println("Se espera un identificador o una cadena de caracteres");
+                        }
+                    } else {
+                        System.out.println("Se espera la palabra 'Println'");
+                    }
+                } else {
+                    System.out.println("Se espera la palabra 'Println'");
+                }
+            } else {
+                System.out.println("Se espera un punto");
+            }
+        } else {
+            System.out.println("Se espera un identificador");
+        }
+        return Print;
     }
 }
